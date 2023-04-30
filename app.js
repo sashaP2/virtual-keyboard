@@ -1,9 +1,9 @@
-document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
+document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper">
 <h1>virtual-keyboard</h1>
 <textarea class="textarea" rows="10" cols="50"></textarea>
 <div class="keyboard">
     <div class="row">
-        <div class="key">~</div>
+        <div class="key">&#96;</div>
         <div class="key">1</div>
         <div class="key">2</div>
         <div class="key">3</div>
@@ -32,7 +32,7 @@ document.body.insertAdjacentHTML("afterbegin", `<div class="wrapper">
         <div class="key">p</div>
         <div class="key">[</div>
         <div class="key">]</div>
-        <div class="key">\</div>
+        <div class="key">&#92;</div>
         <div class="key">Del</div>
     </div>
     <div class="row">
