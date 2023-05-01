@@ -1,7 +1,8 @@
 /* eslint-disable no-plusplus */
+
 document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper">
 <h1>virtual-keyboard</h1>
-<textarea class="textarea" rows="10" cols="50" autofocus></textarea>
+<textarea class="textarea" rows="10" cols="50" autofocus value=''></textarea>
 <div class="keyboard">
     <div class="row">
         <div class="key">&#96;</div>
@@ -34,7 +35,6 @@ document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper">
         <div class="key">[</div>
         <div class="key">]</div>
         <div class="key">&#92;</div>
-        <div class="key">Del</div>
     </div>
     <div class="row">
         <div class="key capslock">CapsLock</div>
@@ -68,7 +68,6 @@ document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper">
     </div>
     <div class="row">
         <div class="key ctrl">Ctrl</div>
-        <div class="key">Win</div>
         <div class="key">Alt</div>
         <div class="key space"> </div>
         <div class="key">Alt</div>
@@ -79,14 +78,13 @@ document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper">
     </div>
 </div>
 <p>Клавиатура создана в операционной системе Windows</p>
-<p>Для переключения языка комбинация: левые ctrl + alt</p>
 </div> `);
 
 const keys = document.getElementsByClassName('key');
-/* const textarea = document.getElementsByClassName('textarea');
+/* let textarea = document.getElementsByClassName('textarea');
+const capslock = document.getElementsByClassName('capslock');
 const backspace = document.getElementsByClassName('backspace');
 const tab = document.getElementsByClassName('tab');
-const capslock = document.getElementsByClassName('capslock');
 const enter = document.getElementsByClassName('enter');
 const shift = document.getElementsByClassName('shift');
 const ctrl = document.getElementsByClassName('ctrl');
@@ -97,9 +95,6 @@ document.addEventListener('keydown', (event) => {
     if (keys[i].textContent === event.key) {
       keys[i].classList.add('active');
     }
-    /* if(keys[i].textContent == 'Ctrl') {
-        keys[i].classList.add('active');
-    } */
   }
 });
 
@@ -108,8 +103,25 @@ document.addEventListener('keyup', (event) => {
     if (keys[j].textContent === event.key) {
       keys[j].classList.remove('active');
     }
-    /* if(keys[j].textContent == 'Ctrl') {
-            keys[j].classList.remove('active');
-        } */
   }
 });
+
+/* document.addEventListener('keydown', (e) => {
+    e.preventDefault()
+    const isCaps = e.getModifierState('CapsLock')
+    if(isCaps === true) {
+        keys.textContent = keys.textContent.toUpperCase();
+    }
+}) */
+
+for (let q = 0; q < keys.length; q++) {
+  keys[q].addEventListener('mousedown', () => {
+    keys[q].classList.add('active');
+  });
+}
+
+for (let t = 0; t < keys.length; t++) {
+  keys[t].addEventListener('mouseup', () => {
+    keys[t].classList.remove('active');
+  });
+}
