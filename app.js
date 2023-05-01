@@ -1,6 +1,7 @@
+/* eslint-disable no-plusplus */
 document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper">
 <h1>virtual-keyboard</h1>
-<textarea class="textarea" rows="10" cols="50"></textarea>
+<textarea class="textarea" rows="10" cols="50" autofocus></textarea>
 <div class="keyboard">
     <div class="row">
         <div class="key">&#96;</div>
@@ -69,7 +70,7 @@ document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper">
         <div class="key ctrl">Ctrl</div>
         <div class="key">Win</div>
         <div class="key">Alt</div>
-        <div class="key space"></div>
+        <div class="key space"> </div>
         <div class="key">Alt</div>
         <div class="key">◄</div>
         <div class="key">▼</div>
@@ -80,3 +81,35 @@ document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper">
 <p>Клавиатура создана в операционной системе Windows</p>
 <p>Для переключения языка комбинация: левые ctrl + alt</p>
 </div> `);
+
+const keys = document.getElementsByClassName('key');
+/* const textarea = document.getElementsByClassName('textarea');
+const backspace = document.getElementsByClassName('backspace');
+const tab = document.getElementsByClassName('tab');
+const capslock = document.getElementsByClassName('capslock');
+const enter = document.getElementsByClassName('enter');
+const shift = document.getElementsByClassName('shift');
+const ctrl = document.getElementsByClassName('ctrl');
+const space = document.getElementsByClassName('space'); */
+
+document.addEventListener('keydown', (event) => {
+  for (let i = 0; i < keys.length; i++) {
+    if (keys[i].textContent === event.key) {
+      keys[i].classList.add('active');
+    }
+    /* if(keys[i].textContent == 'Ctrl') {
+        keys[i].classList.add('active');
+    } */
+  }
+});
+
+document.addEventListener('keyup', (event) => {
+  for (let j = 0; j < keys.length; j++) {
+    if (keys[j].textContent === event.key) {
+      keys[j].classList.remove('active');
+    }
+    /* if(keys[j].textContent == 'Ctrl') {
+            keys[j].classList.remove('active');
+        } */
+  }
+});

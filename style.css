@@ -17,7 +17,14 @@
     display: flex;
 }
 
-.key {
+.key,
+.backspace,
+.tab,
+.capslock,
+.enter,
+.shift,
+.ctrl,
+.space {
     margin: 2.5px;
     height: 45px;
     width: 45px;
@@ -56,10 +63,29 @@
     width: 780px;
 }
 
-.key:hover {
+.key:hover,
+.backspace:hover,
+.tab:hover,
+.capslock:hover,
+.enter:hover,
+.shift:hover,
+.ctrl:hover,
+.space:hover {
     background: rgb(251, 195, 205);
 }
 
-.key:active {
+.key:active,
+.backspace:active,
+.tab:active,
+.capslock:active,
+.enter:active,
+.shift:active,
+.ctrl:active,
+.space:active {
     background: rgb(92, 92, 204);
+}
+
+.keyboard .active {
+    background: rgb(92, 92, 204);
+    border-radius: 50%;
 }
