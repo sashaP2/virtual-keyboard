@@ -1,5 +1,3 @@
-/* eslint-disable no-plusplus */
-
 document.body.insertAdjacentHTML('afterbegin', `<div class="wrapper">
 <h1>virtual-keyboard</h1>
 <textarea class="textarea" rows="10" cols="50" autofocus value=''></textarea>
@@ -91,7 +89,7 @@ const ctrl = document.getElementsByClassName('ctrl');
 const space = document.getElementsByClassName('space'); */
 
 document.addEventListener('keydown', (event) => {
-  for (let i = 0; i < keys.length; i++) {
+  for (let i = 0; i < keys.length; i += 1) {
     if (keys[i].textContent === event.key) {
       keys[i].classList.add('active');
     }
@@ -99,7 +97,7 @@ document.addEventListener('keydown', (event) => {
 });
 
 document.addEventListener('keyup', (event) => {
-  for (let j = 0; j < keys.length; j++) {
+  for (let j = 0; j < keys.length; j += 1) {
     if (keys[j].textContent === event.key) {
       keys[j].classList.remove('active');
     }
@@ -114,13 +112,13 @@ document.addEventListener('keyup', (event) => {
     }
 }) */
 
-for (let q = 0; q < keys.length; q++) {
+for (let q = 0; q < keys.length; q += 1) {
   keys[q].addEventListener('mousedown', () => {
     keys[q].classList.add('active');
   });
 }
 
-for (let t = 0; t < keys.length; t++) {
+for (let t = 0; t < keys.length; t += 1) {
   keys[t].addEventListener('mouseup', () => {
     keys[t].classList.remove('active');
   });
